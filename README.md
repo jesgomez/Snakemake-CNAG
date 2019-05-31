@@ -45,6 +45,9 @@ You must take into account, config-cluster file overwrites snakefile configurati
 ```bash
 snakemake --is --nt [...] \
 --cluster "sbatch-cnag.py {dependencies}" \
---config "pipeline_config.json"
+--config "pipeline_config.json" \
 --cluster-config "cluster-config.json"
 ```
+
+## Writting your pipelines
+Full snakemake documentation can be found [here](https://snakemake.readthedocs.io/en/stable/)
