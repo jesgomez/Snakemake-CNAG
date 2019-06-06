@@ -7,12 +7,12 @@ module load CONDA/4.5.11_PYTHON3
 ```
 
 ## Set up your pipeline 
-Currenly are soported:
+Currently sopported:
 - threads
 - time
 - name
   
-This can be set up in snakefile or cluster-config file.
+These can be set up in snakefile or cluster-config file.
 
 **snakefile**
 ```
@@ -49,5 +49,5 @@ snakemake --is --nt [...] \
 --cluster-config "cluster-config.json"
 ```
 
-## Writting your pipelines
+## Writing your pipelines
 Full snakemake documentation can be found [here](https://snakemake.readthedocs.io/en/stable/)
