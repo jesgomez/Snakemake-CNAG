@@ -43,7 +43,7 @@ You must take into account, config-cluster file overwrites snakefile configurati
 ## Running a pipeline with dependencies at CNAG's cluster
 
 ```bash
-snakemake --is --nt [...] \
+snakemake --jobs 999 --is --nt [...] \
 --cluster "sbatch-cnag.py {dependencies}" \
 --config "pipeline_config.json" \
 --cluster-config "cluster-config.json"
