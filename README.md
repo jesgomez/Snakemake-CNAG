@@ -35,7 +35,7 @@ rule example1:
 }
 
 ```
-If one of the rules uses wildcards, you can specify different name per wildcard (eg. using the wildcard file): 
+If one of the rules uses wildcards, you can specify a different jobname per wildcard (eg. using the wildcard "file"): 
 
 ```json
 {
