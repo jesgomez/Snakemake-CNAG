@@ -20,8 +20,6 @@ rule example1:
     input: {input}
     output: {output}
     threads: 1
-    time: "10:00:00"
-    name: "example1_job"
 ```
 
 **cluster-config.json**
@@ -37,6 +35,19 @@ rule example1:
 }
 
 ```
+If one of the rules uses wildcards, you can specify different name per wildcard (eg. using the wildcard file): 
+
+````json
+{
+    "example1":
+        {
+            "name": "example1_job.{wildcards.file}",
+            "time": "23:00:00",
+            "threads": 2
+        }
+}
+
+```
 
 You must take into account, config-cluster file overwrites snakefile configuration. 
 
@@ -44,6 +55,7 @@ You must take into account, config-cluster file overwrites snakefile configurati
 
 ```bash
 snakemake --is --nt [...] \
+--snakefile "mySnakeFile" \
 --cluster "sbatch-cnag.py {dependencies}" \
 --config "pipeline_config.json" \
 --cluster-config "cluster-config.json"
