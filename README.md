@@ -37,7 +37,7 @@ rule example1:
 ```
 If one of the rules uses wildcards, you can specify different name per wildcard (eg. using the wildcard file): 
 
-````json
+```json
 {
     "example1":
         {
@@ -54,10 +54,8 @@ You must take into account, config-cluster file overwrites snakefile configurati
 ## Running a pipeline with dependencies at CNAG's cluster
 
 ```bash
-<<<<<<< HEAD
 snakemake --jobs 999 --is --nt [...] \
 --snakefile "mySnakeFile" \
->>>>>>>
 --cluster "sbatch-cnag.py {dependencies}" \
 --config "pipeline_config.json" \
 --cluster-config "cluster-config.json"
