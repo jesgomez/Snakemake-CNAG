@@ -11,6 +11,8 @@ Currently sopported:
 - threads
 - time
 - name
+- qos
+- partition
   
 These can be set up in snakefile or cluster-config file.
 
