@@ -35,11 +35,13 @@ if "qos" in job_properties['cluster']:
 	qos = job_properties['cluster']["qos"]
 
 log = job_properties.get("log","slurm-%j.out" )
+
 if "log" in job_properties['cluster']:
-	log = job.properties['cluster']["log"]
+	log = job.properties['cluster']["log"][0]
+else:
+	log= "slurm-%j.out"
 
-
-cmdline.append("--parsable --job-name={name} --error={log} --output={log} --time={time} --partition={queue} --qos={qos} --cpus-per-task={cpus}".format(time=time, cpus=cpus,name=name,queue=queue, qos=qos, log=log[0]))
+cmdline.append("--parsable --job-name={name} --error={log} --output={log} --time={time} --partition={queue} --qos={qos} --cpus-per-task={cpus}".format(time=time, cpus=cpus,name=name,queue=queue, qos=qos, log=log))
 cmdline.append(jobscript)
 
 # Constructs and submits
