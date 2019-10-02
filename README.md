@@ -22,6 +22,8 @@ rule example1:
     input: {input}
     output: {output}
     threads: 1
+    params:
+        time: "10:00:00"
 ```
 
 **cluster-config.json**

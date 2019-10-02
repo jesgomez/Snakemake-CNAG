@@ -18,7 +18,7 @@ cpus = job_properties.get("threads","1")
 if 'threads' in job_properties["cluster"]:
 	cpus = job_properties["cluster"]["threads"]
 
-time = job_properties.get("time", "10:00:00")
+time = job_properties['params'].get("time", "10:00:00")
 if "time" in job_properties['cluster']:
 	time = job_properties['cluster']["time"]
 
