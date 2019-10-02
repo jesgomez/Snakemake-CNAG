@@ -23,7 +23,8 @@ rule example1:
     output: {output}
     threads: 1
     params:
-        time: "10:00:00"
+        time = "10:00:00"
+        name = "JobName" 
 ```
 
 **cluster-config.json**

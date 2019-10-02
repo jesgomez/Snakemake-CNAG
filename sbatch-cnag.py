@@ -22,7 +22,7 @@ time = job_properties['params'].get("time", "10:00:00")
 if "time" in job_properties['cluster']:
 	time = job_properties['cluster']["time"]
 
-name = job_properties.get("name", "Snakejob")
+name = job_properties["params"].get("name", "Snakejob")
 if "name" in job_properties['cluster']:
 	name = job_properties['cluster']["name"]
 
