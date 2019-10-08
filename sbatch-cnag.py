@@ -34,7 +34,7 @@ qos = job_properties.get("qos", "normal")
 if "qos" in job_properties['cluster']:
 	qos = job_properties['cluster']["qos"]
 
-log = job_properties.get("log","slurm-%j.out" )
+log = job_properties.get("log",["slurm-%j.out"])
 
 if "log" in job_properties['cluster']:
 	log = job.properties['cluster']["log"]
