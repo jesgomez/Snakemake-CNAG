@@ -34,18 +34,26 @@ qos = job_properties.get("qos", "normal")
 if "qos" in job_properties['cluster']:
 	qos = job_properties['cluster']["qos"]
 
-log = job_properties.get("log",["slurm-%j.out"])
-if "log" in job_properties['cluster']:
-	log = job.properties['cluster']["log"]
-
 constraint = job_properties.get("constraint", "")
 if "constraint" in job_properties['cluster']:
 	constraint = job_properties['cluster']["constraint"]
 
+array= job_properties.get("array", "")
+if "array" in job_properties['cluster']:
+        array = job_properties['cluster']["array"]
+        error = job_properties.get("error","logs/slurm-%A_%a.err")
+        out = job_properties.get("out","logs/slurm-%A_%a.out")      
+else:
+        log = job_properties.get("log","slurm-%j.out")
+        if "log" in job_properties['cluster']:
+                log = job.properties['cluster']["log"]
+        out = log[0]
+        error = log[1]
 
-cmdline.append("--parsable --job-name={name} --error={log} --output={log} --time={time} --partition={queue} --qos={qos} --cpus-per-task={cpus} --constraint={constraint}".format(time=time, cpus=cpus,name=name,queue=queue, qos=qos, log=log[0], constraint=constraint))
+cmdline.append("--parsable --job-name={name} --error={error} --output={out} --time={time} --partition={queue} --qos={qos} --cpus-per-task={cpus} --constraint={constraint} --array={array}".format(time=time, cpus=cpus,name=name,queue=queue, qos=qos, error=error, out=out, constraint=constraint, array=array))
 cmdline.append(jobscript)
-
-# Constructs and submits
 cmdline = " ".join(cmdline)
 os.system(cmdline)
+# Constructs and submits
+
+

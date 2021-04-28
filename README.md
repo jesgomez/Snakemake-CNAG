@@ -1,10 +1,7 @@
 # SNAKEMAKE at CNAG
 
 ## Set up enviroment
-
-```bash
-module load CONDA/4.5.11_PYTHON3
-```
+Get snakemake >= 6.0.5 and python3 in your environment. This script has been tested with Snakemake v6.0.5
 
 ## Set up your pipeline 
 Currently sopported:
@@ -13,6 +10,8 @@ Currently sopported:
 - name
 - qos
 - partition
+- constraint
+- array
   
 These can be set up in snakefile or cluster-config file.
 
