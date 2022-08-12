@@ -34,6 +34,10 @@ qos = job_properties.get("qos", "normal")
 if "qos" in job_properties['cluster']:
 	qos = job_properties['cluster']["qos"]
 
+mem = job_properties.get("mem", "100")
+if "mem" in job_properties['cluster']:
+        mem = job_properties['cluster']['mem']
+
 constraint = job_properties.get("constraint", "")
 if "constraint" in job_properties['cluster']:
 	constraint = job_properties['cluster']["constraint"]
@@ -50,7 +54,7 @@ else:
         out = log[0]
         error = log[1]
 
-cmdline.append("--parsable --job-name={name} --error={error} --output={out} --time={time} --partition={queue} --qos={qos} --cpus-per-task={cpus} --constraint={constraint} --array={array}".format(time=time, cpus=cpus,name=name,queue=queue, qos=qos, error=error, out=out, constraint=constraint, array=array))
+cmdline.append("--parsable --job-name={name} --error={error} --output={out} --time={time} --partition={queue} --qos={qos} --cpus-per-task={cpus} --constraint={constraint} --mem={mem} --array={array}".format(time=time, cpus=cpus,name=name,queue=queue, qos=qos, error=error, out=out, constraint=constraint, array=array, mem=mem))
 cmdline.append(jobscript)
 cmdline = " ".join(cmdline)
 os.system(cmdline)
