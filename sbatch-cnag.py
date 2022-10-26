@@ -26,7 +26,7 @@ name = job_properties["params"].get("name", "Snakejob")
 if "name" in job_properties['cluster']:
 	name = job_properties['cluster']["name"]
 
-queue = job_properties.get("queue", "main")
+queue = job_properties.get("queue", "genD")
 if "queue" in job_properties['cluster']:
 	queue = job_properties['cluster']["queue"]
 
